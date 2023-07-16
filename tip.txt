@@ -1,0 +1,6 @@
+mkdir build
+cd build
+cmake -G "MinGW Makefiles" -DUSE_OPENSSL=ON  ..
+mingw32-make
+mingw32-make install
+

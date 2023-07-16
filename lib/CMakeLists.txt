@@ -59,15 +59,19 @@ if(USE_ARES)
   include_directories(${CARES_INCLUDE_DIR})
 endif()
 
+# link_directories(C:/Qt/Tools/mingw730_64/opt/lib)
+
 add_library(
   ${LIB_NAME}
   ${HHEADERS} ${CSOURCES}
   )
+# target_link_libraries(${LIB_NAME} C:/Qt/Tools/mingw730_64/opt/lib/libssl.a C:/Qt/Tools/mingw730_64/opt/lib/libcrypto.a)
 
 add_library(
   ${PROJECT_NAME}::${LIB_NAME}
   ALIAS ${LIB_NAME}
   )
+# target_link_libraries(${PROJECT_NAME}::${LIB_NAME} C:/Qt/Tools/mingw730_64/opt/lib/libssl.a C:/Qt/Tools/mingw730_64/opt/lib/libcrypto.a)
 
 if(ENABLE_CURLDEBUG)
   # We must compile memdebug.c separately to avoid memdebug.h redefinitions
@@ -79,7 +83,7 @@ if(NOT BUILD_SHARED_LIBS)
     set_target_properties(${LIB_NAME} PROPERTIES INTERFACE_COMPILE_DEFINITIONS CURL_STATICLIB)
 endif()
 
-target_link_libraries(${LIB_NAME} PRIVATE ${CURL_LIBS})
+target_link_libraries(${LIB_NAME} PRIVATE C:/Qt/Tools/mingw730_64/opt/lib/libssl.a C:/Qt/Tools/mingw730_64/opt/lib/libcrypto.a C:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/lib/libz.a ${CURL_LIBS})
 
 transform_makefile_inc("Makefile.soname" "${CMAKE_CURRENT_BINARY_DIR}/Makefile.soname.cmake")
 include(${CMAKE_CURRENT_BINARY_DIR}/Makefile.soname.cmake)

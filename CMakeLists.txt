@@ -64,6 +64,8 @@
 cmake_minimum_required(VERSION 3.7...3.16 FATAL_ERROR)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake;${CMAKE_MODULE_PATH}")
+include_directories(C:/Qt/Tools/mingw730_64/opt/include)
+# link_directories(C:/Qt/Tools/mingw730_64/opt/lib)
 include(Utilities)
 include(Macros)
 include(CMakeDependentOption)
